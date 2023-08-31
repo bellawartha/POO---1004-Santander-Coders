@@ -229,6 +229,66 @@ function employee() {
 
 // 11. Crie uma classe `Bank` que contém uma coleção de contas bancárias. Adicione métodos para adicionar contas, fazer transferências e calcular o saldo total do banco.
 
+function bank() {
+
+    class Titular {
+        private nome: string;
+        private id: number;
+
+        constructor(nome: string, id: number) {
+            this.nome = nome;
+            this.id = id;
+        };
+    };
+
+    class Conta {
+        private titular: Titular;
+        private saldo: number;
+        private numero: number;
+
+        constructor(titular: Titular, saldo: number, numero: number) {
+            this.titular = titular;
+            this.saldo = saldo;
+            this.numero = numero;
+        };
+
+        setSaldo(saldo: number) {
+            this.saldo = saldo;
+        };
+
+        getSaldo() {
+            return this.titular;
+        };
+    };
+
+    class Bank {
+        private contasBancarias: Conta[] = [];
+
+        add(conta: Conta): void {
+            this.contasBancarias.push(conta);
+        };
+
+        fazerTransferencia (valor:number, contaDestino:number, contaOrigem:number) {
+            
+        }
+
+};
+
+const titular1 = new Titular("Marcela", 1234);
+const titular2 = new Titular("Kaique", 4567);
+const titular3 = new Titular("Patricia", 8934);
+
+const conta1 = new Conta(titular1, 500, 4321);
+const conta2 = new Conta(titular2, 200, 8976);
+const conta3 = new Conta(titular3, 1000, 7623);
+
+let bank = new Bank();
+bank.add(conta1);
+bank.add(conta2);
+bank.add(conta3);
+
+console.log(bank);
+};
 
 
 // 12. Crie uma classe `Shape` com método `calculateArea()`. Crie subclasses `Square`, `Triangle` e `Pentagon` que implementam esse método.
