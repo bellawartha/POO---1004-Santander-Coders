@@ -3,56 +3,230 @@
 
 // 2. Adicione um método à classe `Person` que imprime uma saudação com o nome da pessoa.
 
-class Person {
-    name:string;
-    age:number;
+function person() {
+    class Person {
+        name: string;
+        age: number;
 
-    constructor ( name:string, age:number) {
-        this.name = name;
-        this.age = age;
+        constructor(name: string, age: number) {
+            this.name = name;
+            this.age = age;
+        }
+
+        sayHi() {
+            console.log(`Olá, ${this.name}`)
+        }
     }
-}
 
-let p = new Person ('José', 16);
+    let p = new Person('José', 16);
 
-console.log (p);
-
-
+    console.log(p);
+    p.sayHi();
+};
 
 // 3. Crie uma classe `Rectangle` com propriedades `width` e `height`. Adicione um método que calcula a área do retângulo.
 
+function rectangle() {
+    class Rectangle {
+        height: number;
+        width: number;
 
+        constructor(height: number, width: number) {
+            this.height = height;
+            this.width = width;
+        };
+
+        calcArea() {
+            let area: number = this.height * this.width;
+
+            console.log(`A área desse retângulo é de ${area}m²`);
+        };
+    };
+
+    let retangulo = new Rectangle(2, 4);
+
+    retangulo.calcArea();
+};
 
 // 4. Crie uma classe `Circle` com propriedade `radius` e um método que calcula a área do círculo.
 
+function circle() {
+    class Circle {
+        radius: number;
+
+        constructor(radius: number) {
+            this.radius = radius;
+        };
+
+        calcArea() {
+            let area: number = (this.radius ** 2) * 3.14;
+            console.log(area);
+        };
+    };
+
+    let circle = new Circle(3);
+
+    circle.calcArea();
+};
 
 
 // 5. Crie uma classe `Car` com propriedades `make`, `model` e `year`. Crie um método que retorna a descrição do carro.
 
+function car() {
+    class Car {
+        make: string;
+        model: string;
+        year: number;
+
+        constructor(make: string, model: string, year: number) {
+            this.make = make;
+            this.model = model;
+            this.year = year;
+        };
+
+        description() {
+            console.log(`O carro é da marca ${this.make}, modelo ${this.model} do ano ${this.year}`);
+        };
+
+    };
+
+    let car = new Car('Honda', 'Civic', 2014);
+
+    car.description();
+
+};
 
 
 // 6. Crie uma classe `Student` com propriedades `name` e `grades` (um array). Adicione um método que calcula a média das notas.
 
+function student() {
+    class Student {
+        name: string;
+        grades: number[];
 
+        constructor(name: string, grades: number[]) {
+            this.name = name;
+            this.grades = grades
+        }
+
+        media() {
+            let notas = this.grades.reduce((acumulador, nota) => acumulador + nota);
+            let media = notas / this.grades.length;
+
+            console.log(notas)
+            console.log(`A média das notas de ${this.name} é de ${media}`);
+        }
+    }
+
+    let estudante = new Student('João', [9, 8, 5, 6]);
+    estudante.media();
+};
 
 // 7. Crie uma classe `BankAccount` com propriedades `balance` e `owner`. Adicione métodos para depositar e sacar dinheiro.
 
+function bankAccount() {
 
+    class BankAccount {
+        balance: number;
+        owner: string;
+
+        constructor(balance: number, owner: string) {
+            this.balance = balance;
+            this.owner = owner;
+        };
+
+        deposito(cash: number) {
+            this.balance += cash;
+            console.log(`Saldo da conta: ${this.balance}`);
+        };
+
+        saque(cash: number) {
+            this.balance -= cash;
+            console.log(`Saldo da conta: ${this.balance}`);
+        };
+
+    };
+
+    let conta = new BankAccount(1000, 'Jubileu');
+    conta.deposito(500);
+    conta.saque(700);
+};
 
 // 8. Crie uma classe `Book` com propriedades `title`, `author` e `year`. Crie um método que retorna os detalhes do livro.
 
+function book() {
+    class Book {
+        title: string;
+        author: string;
+        year: number;
+
+        constructor(title: string, author: string, year: number) {
+            this.title = title;
+            this.author = author;
+            this.year = year;
+        };
+
+        description() {
+            console.log(`Título: ${this.title} Autor: ${this.author} Ano: ${this.year}`)
+        }
+    }
+
+    let book = new Book('Nós', 'Evgeni Zamiatin', 1924);
+    book.description();
+};
 
 
 // 9. Crie uma classe `Product` com propriedades `name`, `price` e `quantity`. Adicione métodos para calcular o valor total e exibir os detalhes.
 
+function product() {
+    class Product {
+        name: string;
+        price: number;
+        quantity: number;
+
+        constructor(name: string, price: number, quantity: number) {
+            this.name = name;
+            this.price = price;
+            this.quantity = quantity;
+        }
+
+        calcTotal() {
+            let total = this.price * this.quantity;
+            console.log(`O valor total de ${this.quantity} ${this.name} é de ${total}`);
+        };
+    };
+
+    let product = new Product('Notebook', 3000, 2);
+    product.calcTotal();
+};
 
 
 // 10. Crie uma classe `Employee` com propriedades `name`, `role` e `salary`. Adicione um método que calcula um aumento de salário com base em uma porcentagem.
 
+function employee() {
+    class Employee {
+       private name: string;
+       private role: string;
+       private salary: number;
 
+        constructor(name: string, role: string, salary: number) {
+            this.name = name;
+            this.role = role;
+            this.salary = salary;
+        };
 
+        jobPromotion() {
+            let salaryIncrease = this.salary + (this.salary * 0.1);
+            console.log(`O valor do salário de ${this.name} com aumento é de ${salaryIncrease}`);
+        };
+    };
+
+    let employee = new Employee('Maria', 'Desenvolvedora', 5000);
+    employee.jobPromotion();
+};
 
 // **Exercícios Intermediários:**
+
 // 11. Crie uma classe `Bank` que contém uma coleção de contas bancárias. Adicione métodos para adicionar contas, fazer transferências e calcular o saldo total do banco.
 
 
