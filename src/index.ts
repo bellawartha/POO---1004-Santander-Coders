@@ -321,6 +321,23 @@ console.log(bank);
 
 // 19. Crie uma classe `Company` com propriedades `name` e `employees`. Adicione métodos para adicionar e remover funcionários, e calcular a folha de pagamento.
 
+function company () {
+    class Employee {
+        name:string;
+        salary:number;
+        job: string;
+
+        constructor (name:string, salary:number, job:string) {
+            this.name = name;
+            this.salary = salary;
+            this.job = job;
+        };
+    }
+    class Company {
+        
+    }
+
+}
 
 
 // 20. Crie uma classe `Game` com propriedades `name` e `players`. Adicione métodos para adicionar e remover jogadores, e determinar se o jogo está ativo.
