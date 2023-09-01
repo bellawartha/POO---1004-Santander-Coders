@@ -233,6 +233,60 @@ function bank() {
 // 17. Crie uma classe `Animal` com métodos `eat()` e `makeSound()`. Crie subclasses como `Dog`, `Cat` e `Bird` com implementações específicas.
 // 18. Crie uma classe `Shape` com método `draw()`. Crie subclasses como `Circle`, `Square` e `Triangle` com implementações de desenho.
 // 19. Crie uma classe `Company` com propriedades `name` e `employees`. Adicione métodos para adicionar e remover funcionários, e calcular a folha de pagamento.
+function company() {
+    class Employee {
+        constructor(name, id, salary, job) {
+            this.name = name;
+            this.id = id;
+            this.salary = salary;
+            this.job = job;
+        }
+        ;
+    }
+    class Company {
+        constructor(employees) {
+            this.employees = employees;
+        }
+        addEmployee(employee) {
+            this.employees.push(employee);
+            console.log(`${employee.name} foi adicionada como funcionária da empresa`);
+        }
+        removeEmployee(id) {
+            for (let employee of this.employees) {
+                if (employee.id == id) {
+                    const index = this.employees.indexOf(employee);
+                    if (index > -1) {
+                        this.employees.splice(index, 1);
+                        console.log(`${employee.name} foi removida como funcionária da empresa`);
+                    }
+                    ;
+                }
+                ;
+            }
+            ;
+        }
+        ;
+        folhaPagamento() {
+            let total = 0;
+            for (let employee of this.employees) {
+                console.log(`O salário de ${employee.name} é de ${employee.salary}`);
+                total += employee.salary;
+            }
+            ;
+            console.log(`O total a ser pago para os funcionários é de ${total}`);
+        }
+        ;
+    }
+    ;
+    let employee = new Employee('Amanda', 1234, 2500, 'assistente adminsitrativa');
+    let employee2 = new Employee('Marina', 5678, 5000, 'desenvolvedora');
+    let employee3 = new Employee('Amelia', 8912, 8000, 'gestora');
+    let company = new Company([employee]);
+    company.addEmployee(employee2);
+    company.addEmployee(employee3);
+    company.removeEmployee(employee2.id);
+    company.folhaPagamento();
+}
 // 20. Crie uma classe `Game` com propriedades `name` e `players`. Adicione métodos para adicionar e remover jogadores, e determinar se o jogo está ativo.
 // **Exercícios Avançados:**
 // 21. Crie uma classe `Bank` com um método para simular uma transação bancária que envolve várias contas, garantindo consistência.

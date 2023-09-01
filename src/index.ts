@@ -345,6 +345,7 @@ function company() {
 
         addEmployee(employee:Employee) {
             this.employees.push(employee);
+            console.log (`${employee.name} foi adicionada como funcionária da empresa`)
         }
 
         removeEmployee (id:number) {
@@ -353,9 +354,20 @@ function company() {
                     const index = this.employees.indexOf(employee);
                     if (index > -1) {
                         this.employees.splice (index, 1);
+                        console.log (`${employee.name} foi removida como funcionária da empresa`)
                     };
                 };
             };
+        };
+
+        folhaPagamento () {
+            let total:number = 0;
+            for (let employee of this.employees) {
+                console.log (`O salário de ${employee.name} é de ${employee.salary}`);
+                total += employee.salary;
+            };
+
+            console.log (`O total a ser pago para os funcionários é de ${total}`);
         };
     };
 
@@ -363,16 +375,13 @@ function company() {
     let employee2 = new Employee ('Marina', 5678, 5000, 'desenvolvedora');
     let employee3 = new Employee ('Amelia', 8912, 8000, 'gestora');
 
-    let company = new Company (employee);
+    let company = new Company ([employee]);
 
     company.addEmployee(employee2);
     company.addEmployee(employee3);
-    
-    console.log (company.employees);
-
     company.removeEmployee(employee2.id);
 
-    console.log (company.employees);
+    company.folhaPagamento();
 
 }
 
