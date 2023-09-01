@@ -243,14 +243,17 @@ function company() {
         }
         ;
     }
+    ;
     class Company {
         constructor(employees) {
             this.employees = employees;
         }
+        ;
         addEmployee(employee) {
             this.employees.push(employee);
             console.log(`${employee.name} foi adicionada como funcionária da empresa`);
         }
+        ;
         removeEmployee(id) {
             for (let employee of this.employees) {
                 if (employee.id == id) {
@@ -287,6 +290,7 @@ function company() {
     company.removeEmployee(employee2.id);
     company.folhaPagamento();
 }
+;
 // 20. Crie uma classe `Game` com propriedades `name` e `players`. Adicione métodos para adicionar e remover jogadores, e determinar se o jogo está ativo.
 // **Exercícios Avançados:**
 // 21. Crie uma classe `Bank` com um método para simular uma transação bancária que envolve várias contas, garantindo consistência.

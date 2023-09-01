@@ -335,18 +335,15 @@ function company() {
             this.salary = salary;
             this.job = job;
         };
-    }
+    };
     class Company {
         employees: Employee[];
         
-        constructor (employees:Employee[]) {
-            this.employees = employees;
-        }
 
         addEmployee(employee:Employee) {
             this.employees.push(employee);
             console.log (`${employee.name} foi adicionada como funcionária da empresa`)
-        }
+        };
 
         removeEmployee (id:number) {
             for (let employee of this.employees) {
@@ -354,7 +351,7 @@ function company() {
                     const index = this.employees.indexOf(employee);
                     if (index > -1) {
                         this.employees.splice (index, 1);
-                        console.log (`${employee.name} foi removida como funcionária da empresa`)
+                        console.log (`${employee.name} foi removida como funcionária da empresa`);
                     };
                 };
             };
@@ -371,19 +368,20 @@ function company() {
         };
     };
 
-    let employee = new Employee ('Amanda', 1234, 2500, 'assistente adminsitrativa');
+    let employee1 = new Employee ('Amanda', 1234, 2500, 'assistente adminsitrativa');
     let employee2 = new Employee ('Marina', 5678, 5000, 'desenvolvedora');
     let employee3 = new Employee ('Amelia', 8912, 8000, 'gestora');
 
-    let company = new Company ([employee]);
+    let company = new Company ();
 
+    company.addEmployee(employee1);
     company.addEmployee(employee2);
     company.addEmployee(employee3);
     company.removeEmployee(employee2.id);
 
     company.folhaPagamento();
 
-}
+};
 
 
 // 20. Crie uma classe `Game` com propriedades `name` e `players`. Adicione métodos para adicionar e remover jogadores, e determinar se o jogo está ativo.
