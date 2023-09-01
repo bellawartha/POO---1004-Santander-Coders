@@ -1,26 +1,230 @@
 "use strict";
 // **Exercícios Básicos:**
 // 1. Crie uma classe chamada `Person` com propriedades `name` e `age`. Instancie alguns objetos dessa classe.
-class Person {
-    constructor(name, age) {
-        this.name = name;
-        this.age = age;
-    }
-}
-let p = new Person('José', 16);
-console.log(p);
-
 // 2. Adicione um método à classe `Person` que imprime uma saudação com o nome da pessoa.
+function person() {
+    class Person {
+        constructor(name, age) {
+            this.name = name;
+            this.age = age;
+        }
+        sayHi() {
+            console.log(`Olá, ${this.name}`);
+        }
+    }
+    let p = new Person('José', 16);
+    console.log(p);
+    p.sayHi();
+}
+;
 // 3. Crie uma classe `Rectangle` com propriedades `width` e `height`. Adicione um método que calcula a área do retângulo.
+function rectangle() {
+    class Rectangle {
+        constructor(height, width) {
+            this.height = height;
+            this.width = width;
+        }
+        ;
+        calcArea() {
+            let area = this.height * this.width;
+            console.log(`A área desse retângulo é de ${area}m²`);
+        }
+        ;
+    }
+    ;
+    let retangulo = new Rectangle(2, 4);
+    retangulo.calcArea();
+}
+;
 // 4. Crie uma classe `Circle` com propriedade `radius` e um método que calcula a área do círculo.
+function circle() {
+    class Circle {
+        constructor(radius) {
+            this.radius = radius;
+        }
+        ;
+        calcArea() {
+            let area = (this.radius ** 2) * 3.14;
+            console.log(area);
+        }
+        ;
+    }
+    ;
+    let circle = new Circle(3);
+    circle.calcArea();
+}
+;
 // 5. Crie uma classe `Car` com propriedades `make`, `model` e `year`. Crie um método que retorna a descrição do carro.
+function car() {
+    class Car {
+        constructor(make, model, year) {
+            this.make = make;
+            this.model = model;
+            this.year = year;
+        }
+        ;
+        description() {
+            console.log(`O carro é da marca ${this.make}, modelo ${this.model} do ano ${this.year}`);
+        }
+        ;
+    }
+    ;
+    let car = new Car('Honda', 'Civic', 2014);
+    car.description();
+}
+;
 // 6. Crie uma classe `Student` com propriedades `name` e `grades` (um array). Adicione um método que calcula a média das notas.
+function student() {
+    class Student {
+        constructor(name, grades) {
+            this.name = name;
+            this.grades = grades;
+        }
+        media() {
+            let notas = this.grades.reduce((acumulador, nota) => acumulador + nota);
+            let media = notas / this.grades.length;
+            console.log(notas);
+            console.log(`A média das notas de ${this.name} é de ${media}`);
+        }
+    }
+    let estudante = new Student('João', [9, 8, 5, 6]);
+    estudante.media();
+}
+;
 // 7. Crie uma classe `BankAccount` com propriedades `balance` e `owner`. Adicione métodos para depositar e sacar dinheiro.
+function bankAccount() {
+    class BankAccount {
+        constructor(balance, owner) {
+            this.balance = balance;
+            this.owner = owner;
+        }
+        ;
+        deposito(cash) {
+            this.balance += cash;
+            console.log(`Saldo da conta: ${this.balance}`);
+        }
+        ;
+        saque(cash) {
+            this.balance -= cash;
+            console.log(`Saldo da conta: ${this.balance}`);
+        }
+        ;
+    }
+    ;
+    let conta = new BankAccount(1000, 'Jubileu');
+    conta.deposito(500);
+    conta.saque(700);
+}
+;
 // 8. Crie uma classe `Book` com propriedades `title`, `author` e `year`. Crie um método que retorna os detalhes do livro.
+function book() {
+    class Book {
+        constructor(title, author, year) {
+            this.title = title;
+            this.author = author;
+            this.year = year;
+        }
+        ;
+        description() {
+            console.log(`Título: ${this.title} Autor: ${this.author} Ano: ${this.year}`);
+        }
+    }
+    let book = new Book('Nós', 'Evgeni Zamiatin', 1924);
+    book.description();
+}
+;
 // 9. Crie uma classe `Product` com propriedades `name`, `price` e `quantity`. Adicione métodos para calcular o valor total e exibir os detalhes.
+function product() {
+    class Product {
+        constructor(name, price, quantity) {
+            this.name = name;
+            this.price = price;
+            this.quantity = quantity;
+        }
+        calcTotal() {
+            let total = this.price * this.quantity;
+            console.log(`O valor total de ${this.quantity} ${this.name} é de ${total}`);
+        }
+        ;
+    }
+    ;
+    let product = new Product('Notebook', 3000, 2);
+    product.calcTotal();
+}
+;
 // 10. Crie uma classe `Employee` com propriedades `name`, `role` e `salary`. Adicione um método que calcula um aumento de salário com base em uma porcentagem.
+function employee() {
+    class Employee {
+        constructor(name, role, salary) {
+            this.name = name;
+            this.role = role;
+            this.salary = salary;
+        }
+        ;
+        jobPromotion() {
+            let salaryIncrease = this.salary + (this.salary * 0.1);
+            console.log(`O valor do salário de ${this.name} com aumento é de ${salaryIncrease}`);
+        }
+        ;
+    }
+    ;
+    let employee = new Employee('Maria', 'Desenvolvedora', 5000);
+    employee.jobPromotion();
+}
+;
 // **Exercícios Intermediários:**
 // 11. Crie uma classe `Bank` que contém uma coleção de contas bancárias. Adicione métodos para adicionar contas, fazer transferências e calcular o saldo total do banco.
+function bank() {
+    class Titular {
+        constructor(nome, id) {
+            this.nome = nome;
+            this.id = id;
+        }
+        ;
+    }
+    ;
+    class Conta {
+        constructor(titular, saldo, numero) {
+            this.titular = titular;
+            this.saldo = saldo;
+            this.numero = numero;
+        }
+        ;
+        setSaldo(saldo) {
+            this.saldo = saldo;
+        }
+        ;
+        getSaldo() {
+            return this.titular;
+        }
+        ;
+    }
+    ;
+    class Bank {
+        constructor() {
+            this.contasBancarias = [];
+        }
+        add(conta) {
+            this.contasBancarias.push(conta);
+        }
+        ;
+        fazerTransferencia(valor, contaDestino, contaOrigem) {
+        }
+    }
+    ;
+    const titular1 = new Titular("Marcela", 1234);
+    const titular2 = new Titular("Kaique", 4567);
+    const titular3 = new Titular("Patricia", 8934);
+    const conta1 = new Conta(titular1, 500, 4321);
+    const conta2 = new Conta(titular2, 200, 8976);
+    const conta3 = new Conta(titular3, 1000, 7623);
+    let bank = new Bank();
+    bank.add(conta1);
+    bank.add(conta2);
+    bank.add(conta3);
+    console.log(bank);
+}
+;
 // 12. Crie uma classe `Shape` com método `calculateArea()`. Crie subclasses `Square`, `Triangle` e `Pentagon` que implementam esse método.
 // 13. Crie uma classe `Playlist` que contém objetos da classe `Song`. Adicione métodos para adicionar músicas, remover músicas e calcular a duração total da playlist.
 // 14. Crie uma classe `Person` com propriedade `address`. Crie uma classe `Address` separada e associe-a à classe `Person`.
