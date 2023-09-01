@@ -321,21 +321,58 @@ console.log(bank);
 
 // 19. Crie uma classe `Company` com propriedades `name` e `employees`. Adicione métodos para adicionar e remover funcionários, e calcular a folha de pagamento.
 
-function company () {
+function company() {
+
     class Employee {
-        name:string;
-        salary:number;
+        name: string;
+        id:number;
+        salary: number;
         job: string;
 
-        constructor (name:string, salary:number, job:string) {
+        constructor(name: string, id:number, salary: number, job: string) {
             this.name = name;
+            this.id = id;
             this.salary = salary;
             this.job = job;
         };
     }
     class Company {
+        employees: Employee[];
         
-    }
+        constructor (employees:Employee[]) {
+            this.employees = employees;
+        }
+
+        addEmployee(employee:Employee) {
+            this.employees.push(employee);
+        }
+
+        removeEmployee (id:number) {
+            for (let employee of this.employees) {
+                if (employee.id == id) {
+                    const index = this.employees.indexOf(employee);
+                    if (index > -1) {
+                        this.employees.splice (index, 1);
+                    };
+                };
+            };
+        };
+    };
+
+    let employee = new Employee ('Amanda', 1234, 2500, 'assistente adminsitrativa');
+    let employee2 = new Employee ('Marina', 5678, 5000, 'desenvolvedora');
+    let employee3 = new Employee ('Amelia', 8912, 8000, 'gestora');
+
+    let company = new Company (employee);
+
+    company.addEmployee(employee2);
+    company.addEmployee(employee3);
+    
+    console.log (company.employees);
+
+    company.removeEmployee(employee2.id);
+
+    console.log (company.employees);
 
 }
 
