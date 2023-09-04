@@ -205,9 +205,9 @@ function product() {
 
 function employee() {
     class Employee {
-       private name: string;
-       private role: string;
-       private salary: number;
+        private name: string;
+        private role: string;
+        private salary: number;
 
         constructor(name: string, role: string, salary: number) {
             this.name = name;
@@ -244,6 +244,7 @@ function bank() {
     class Conta {
         private titular: Titular;
         private saldo: number;
+
         private numero: number;
 
         constructor(titular: Titular, saldo: number, numero: number) {
@@ -251,7 +252,6 @@ function bank() {
             this.saldo = saldo;
             this.numero = numero;
         };
-
         setSaldo(saldo: number) {
             this.saldo = saldo;
         };
@@ -268,26 +268,26 @@ function bank() {
             this.contasBancarias.push(conta);
         };
 
-        fazerTransferencia (valor:number, contaDestino:number, contaOrigem:number) {
-            
+        fazerTransferencia(valor: number, contaDestino: number, contaOrigem: number) {
+
         }
 
-};
+    };
 
-const titular1 = new Titular("Marcela", 1234);
-const titular2 = new Titular("Kaique", 4567);
-const titular3 = new Titular("Patricia", 8934);
+    const titular1 = new Titular("Marcela", 1234);
+    const titular2 = new Titular("Kaique", 4567);
+    const titular3 = new Titular("Patricia", 8934);
 
-const conta1 = new Conta(titular1, 500, 4321);
-const conta2 = new Conta(titular2, 200, 8976);
-const conta3 = new Conta(titular3, 1000, 7623);
+    const conta1 = new Conta(titular1, 500, 4321);
+    const conta2 = new Conta(titular2, 200, 8976);
+    const conta3 = new Conta(titular3, 1000, 7623);
 
-let bank = new Bank();
-bank.add(conta1);
-bank.add(conta2);
-bank.add(conta3);
+    let bank = new Bank();
+    bank.add(conta1);
+    bank.add(conta2);
+    bank.add(conta3);
 
-console.log(bank);
+    console.log(bank);
 };
 
 
@@ -325,11 +325,12 @@ function company() {
 
     class Employee {
         name: string;
-        id:number;
+        id: number;
         salary: number;
         job: string;
 
-        constructor(name: string, id:number, salary: number, job: string) {
+
+        constructor(name: string, id: number, salary: number, job: string) {
             this.name = name;
             this.id = id;
             this.salary = salary;
@@ -338,41 +339,41 @@ function company() {
     };
     class Company {
         employees: Employee[];
-        
 
-        addEmployee(employee:Employee) {
+
+        addEmployee(employee: Employee) {
             this.employees.push(employee);
-            console.log (`${employee.name} foi adicionada como funcionária da empresa`)
+            console.log(`${employee.name} foi adicionada como funcionária da empresa`)
         };
 
-        removeEmployee (id:number) {
+        removeEmployee(id: number) {
             for (let employee of this.employees) {
                 if (employee.id == id) {
                     const index = this.employees.indexOf(employee);
                     if (index > -1) {
-                        this.employees.splice (index, 1);
-                        console.log (`${employee.name} foi removida como funcionária da empresa`);
+                        this.employees.splice(index, 1);
+                        console.log(`${employee.name} foi removida como funcionária da empresa`);
                     };
                 };
             };
         };
 
-        folhaPagamento () {
-            let total:number = 0;
+        folhaPagamento() {
+            let total: number = 0;
             for (let employee of this.employees) {
-                console.log (`O salário de ${employee.name} é de ${employee.salary}`);
+                console.log(`O salário de ${employee.name} é de ${employee.salary}`);
                 total += employee.salary;
             };
 
-            console.log (`O total a ser pago para os funcionários é de ${total}`);
+            console.log(`O total a ser pago para os funcionários é de ${total}`);
         };
     };
 
-    let employee1 = new Employee ('Amanda', 1234, 2500, 'assistente adminsitrativa');
-    let employee2 = new Employee ('Marina', 5678, 5000, 'desenvolvedora');
-    let employee3 = new Employee ('Amelia', 8912, 8000, 'gestora');
+    let employee1 = new Employee('Amanda', 1234, 2500, 'assistente adminsitrativa');
+    let employee2 = new Employee('Marina', 5678, 5000, 'desenvolvedora');
+    let employee3 = new Employee('Amelia', 8912, 8000, 'gestora');
 
-    let company = new Company ();
+    let company = new Company();
 
     company.addEmployee(employee1);
     company.addEmployee(employee2);
