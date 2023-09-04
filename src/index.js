@@ -245,10 +245,6 @@ function company() {
     }
     ;
     class Company {
-        constructor(employees) {
-            this.employees = employees;
-        }
-        ;
         addEmployee(employee) {
             this.employees.push(employee);
             console.log(`${employee.name} foi adicionada como funcionária da empresa`);
@@ -281,10 +277,11 @@ function company() {
         ;
     }
     ;
-    let employee = new Employee('Amanda', 1234, 2500, 'assistente adminsitrativa');
+    let employee1 = new Employee('Amanda', 1234, 2500, 'assistente adminsitrativa');
     let employee2 = new Employee('Marina', 5678, 5000, 'desenvolvedora');
     let employee3 = new Employee('Amelia', 8912, 8000, 'gestora');
-    let company = new Company([employee]);
+    let company = new Company();
+    company.addEmployee(employee1);
     company.addEmployee(employee2);
     company.addEmployee(employee3);
     company.removeEmployee(employee2.id);
