@@ -232,8 +232,8 @@ function employee() {
 function bank() {
 
     class Titular {
-        private nome: string;
-        private id: number;
+        nome: string;
+        id: number;
 
         constructor(nome: string, id: number) {
             this.nome = nome;
@@ -257,6 +257,14 @@ function bank() {
         };
 
         getSaldo() {
+            return this.saldo;
+        };
+
+        getNumero() {
+            return this.numero;
+        };
+
+        getTitular() {
             return this.titular;
         };
     };
@@ -268,26 +276,44 @@ function bank() {
             this.contasBancarias.push(conta);
         };
 
-        fazerTransferencia (valor:number, contaDestino:number, contaOrigem:number) {
-            
-        }
+        fazerTransferencia(valor: number, contaDestino: number, contaOrigem: number) {
+            for (let conta of this.contasBancarias) {
 
-};
+                if (conta.getNumero() == contaOrigem) {
+                    conta.setSaldo(conta.getSaldo() - valor);
+                    console.log(`A conta de ${conta.getTitular().nome} transferiu ${valor} reais`);
+                    console.log (`Saldo de ${conta.getTitular().nome}: ${conta.getSaldo()}`);
 
-const titular1 = new Titular("Marcela", 1234);
-const titular2 = new Titular("Kaique", 4567);
-const titular3 = new Titular("Patricia", 8934);
+                };
+                if (conta.getNumero() == contaDestino) {
+                    conta.setSaldo(conta.getSaldo() + valor);
+                    console.log(`A conta de ${conta.getTitular().nome} recebeu ${valor} reais`);
+                    console.log (`Saldo de ${conta.getTitular().nome}: ${conta.getSaldo()}`);
+                };
+            };
 
-const conta1 = new Conta(titular1, 500, 4321);
-const conta2 = new Conta(titular2, 200, 8976);
-const conta3 = new Conta(titular3, 1000, 7623);
+        };
 
-let bank = new Bank();
-bank.add(conta1);
-bank.add(conta2);
-bank.add(conta3);
+    };
 
-console.log(bank);
+    const titular1 = new Titular("Marcela", 1234);
+    const titular2 = new Titular("Kaique", 4567);
+    const titular3 = new Titular("Patricia", 8934);
+
+    const conta1 = new Conta(titular1, 500, 4321);
+    const conta2 = new Conta(titular2, 200, 8976);
+    const conta3 = new Conta(titular3, 1000, 7623);
+
+    let bank = new Bank();
+    bank.add(conta1);
+    bank.add(conta2);
+    bank.add(conta3);
+
+    console.log(bank);
+
+    bank.fazerTransferencia(200, 8976, 7623);
+
+
 };
 
 
