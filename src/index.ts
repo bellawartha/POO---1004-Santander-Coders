@@ -232,8 +232,8 @@ function employee() {
 function bank() {
 
     class Titular {
-        private nome: string;
-        private id: number;
+        nome: string;
+        id: number;
 
         constructor(nome: string, id: number) {
             this.nome = nome;
@@ -257,6 +257,14 @@ function bank() {
         };
 
         getSaldo() {
+            return this.saldo;
+        };
+
+        getNumero() {
+            return this.numero;
+        };
+
+        getTitular() {
             return this.titular;
         };
     };
@@ -268,8 +276,8 @@ function bank() {
             this.contasBancarias.push(conta);
         };
 
-        fazerTransferencia(valor: number, contaDestino: number, contaOrigem: number) {
-
+        fazerTransferencia (valor:number, contaDestino:number, contaOrigem:number) {
+            
         }
 
     };
@@ -287,7 +295,7 @@ function bank() {
     bank.add(conta2);
     bank.add(conta3);
 
-    console.log(bank);
+console.log(bank);
 };
 
 
