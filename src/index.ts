@@ -299,19 +299,143 @@ console.log(bank);
 };
 
 
-// 12. Crie uma classe `Shape` com método `calculateArea()`. Crie subclasses `Square`, `Triangle` e `Pentagon` que implementam esse método.
+// 12. Crie uma classe `Shape` com método `calculateArea()`. Crie subclasses `Square`, `Triangle` e `Circle` que implementam esse método.
 
+function shape () {
+    abstract class Shape {
+        abstract calculateArea():number;
+    };
 
+    class Square extends Shape {
+        side:number;
+
+        constructor (side:number) {
+            super();
+            this.side = side;
+        };
+
+        calculateArea(): number {
+            return this.side ** 2;
+        };
+    };
+
+    class Triangle extends Shape {
+        base:number;
+        height:number;
+
+        constructor (base:number, height:number) {
+            super();
+            this.base = base;
+            this.height = height;
+        };
+
+        calculateArea(): number {
+            return (this.base * this.height)/2;
+        };
+
+    };
+
+    class Circle extends Shape {
+        radius:number;
+
+        constructor (radius:number) {
+            super();
+            this.radius = radius;
+        };
+
+        calculateArea(): number {
+            return (this.radius ** 2) * 3.14;
+        };
+    };
+
+    let square = new Square (5);
+    let triangle = new Triangle (2, 5);
+    let circle = new Circle (5);
+
+    console.log (square.calculateArea());
+    console.log (triangle.calculateArea());
+    console.log (circle.calculateArea());
+};
 
 // 13. Crie uma classe `Playlist` que contém objetos da classe `Song`. Adicione métodos para adicionar músicas, remover músicas e calcular a duração total da playlist.
 
-
+function playlist () {
+    class Song {
+        name: string;
+        artist: string;
+        duration: number;
+    
+        constructor(name: string, artist: string, duration: number) {
+            this.name = name;
+            this.artist = artist;
+            this.duration = duration;
+        };
+    
+    };
+    
+    class Playlist {
+        songs: Song[];
+    
+        constructor() {
+            this.songs = [];
+        };
+    
+        addSong(song: Song) {
+            this.songs.push(song);
+            console.log(`${song.name} de ${song.artist} foi adiciona a playlist com sucesso`)
+        };
+    
+        removeSong(name: string, artist: string) {
+            for (let song of this.songs) {
+                if (song.name == name && song.artist == artist) {
+                    const index = this.songs.indexOf(song);
+                    if (index > -1) {
+                        this.songs.splice(index, 1);
+                        console.log(`${song.name} de ${song.artist} foi removida da playlist com sucesso`)
+                    };
+                };
+            };
+        };
+    
+        calcDurationTotal() {
+            let durationPlaylist = 0;
+            for (let song of this.songs) {
+                durationPlaylist += song.duration;
+            };
+            return console.log(`A duração total da playlist é de ${durationPlaylist} minutos`);
+        };
+    
+    };
+    
+    let song1 = new Song('Aquarela do Brasil', 'Gal Costa', 3.50);
+    let song2 = new Song('Bohemian Rhapsody', 'Queen', 5.55);
+    let song3 = new Song('Shape of You', 'Ed Sheeran', 4.23);
+    let song4 = new Song('Imagine', 'John Lennon', 3.01);
+    let song5 = new Song('Hotel California', 'Eagles', 6.30);
+    
+    let rock = new Playlist ();
+    rock.addSong(song1);
+    rock.addSong(song2);
+    rock.addSong(song4);
+    rock.addSong(song5);
+    rock.calcDurationTotal();
+    rock.removeSong ('Aquarela do Brasil', 'Gal Costa');
+    rock.calcDurationTotal();
+};
 
 // 14. Crie uma classe `Person` com propriedade `address`. Crie uma classe `Address` separada e associe-a à classe `Person`.
+ 
 
+function address () {
+
+ };
 
 
 // 15. Crie uma hierarquia de classes para representar diferentes tipos de veículos. Cada classe deve ter métodos específicos, como `startEngine()` e `stopEngine()`.
+
+function vehicles () {
+
+};
 
 
 
@@ -321,7 +445,9 @@ console.log(bank);
 
 // 17. Crie uma classe `Animal` com métodos `eat()` e `makeSound()`. Crie subclasses como `Dog`, `Cat` e `Bird` com implementações específicas.
 
+function animal () {
 
+};
 
 // 18. Crie uma classe `Shape` com método `draw()`. Crie subclasses como `Circle`, `Square` e `Triangle` com implementações de desenho.
 
@@ -345,6 +471,7 @@ function company() {
             this.job = job;
         };
     };
+
     class Company {
         employees: Employee[];
 
@@ -394,6 +521,10 @@ function company() {
 
 
 // 20. Crie uma classe `Game` com propriedades `name` e `players`. Adicione métodos para adicionar e remover jogadores, e determinar se o jogo está ativo.
+
+function game () {
+
+};
 
 
 // **Exercícios Avançados:**
